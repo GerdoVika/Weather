@@ -1,4 +1,4 @@
 {
-  "api_key": "Your API key hear",
+  "api_key": "Your API key",
   "api_url": "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history"
 }

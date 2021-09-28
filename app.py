@@ -3,7 +3,6 @@ import requests
 from datetime import date, timedelta
 import json
 
-from config import config
 from statistic import average, median
 
 
