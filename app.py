@@ -1,7 +1,9 @@
-from flask import Flask, request, jsonify
 import requests
-from datetime import date, timedelta
 import json
+import os
+from datetime import date, timedelta
+
+from flask import Flask, request, jsonify
 
 from statistic import average, median
 
@@ -9,16 +11,15 @@ from statistic import average, median
 app = Flask(__name__)
 
 
-def get_config() -> set:
-    with open('config.json', 'r') as f:
-        config = json.load(f)
-    return config['api_key'], config['api_url']
+def get_config() -> str:
+    return os.getenv('API_KEY')
 
 
 @app.route('/weather', methods=['GET'])
 def weather():
     city = request.args.get('city')
     days = request.args.get('days')
+    api_url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history'
 
     try:
         days = int(days)
@@ -27,7 +28,7 @@ def weather():
 
     to = date.today()
     from_ = date.today() - timedelta(days=days)
-    api_key, api_url = get_config()
+    api_key = get_config()
     data = {
         'locations': city,
         'aggregateHours': 24,
