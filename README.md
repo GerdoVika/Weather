@@ -33,17 +33,12 @@ Example of responce in json:
 
 ***
 ### Start progect
-To add requirement do the next command:
-```
-python -m pip install -r requirements.txt
-```
-In config.py you need to replace 'your api key' with api key from [Visual Crossing](https://www.visualcrossing.com/weather-api)
+At first you need to get api key from [Visual Crossing](https://www.visualcrossing.com/weather-api).
 
-To start the project locally you should do next command:
+To start progect with docker you should run next command using received api key.
 ```
-flask run
+docker run -dp 8080:8080 -e API_KEY=your-api-key gerdovika/weather_app
 ```
-or
-```
-python app.py
-```
+The service will be available at address:
+- http://localhost:8080/
+- http://127.0.0.1:8080/
