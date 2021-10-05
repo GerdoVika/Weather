@@ -41,4 +41,3 @@ docker run -dp 8080:5000 -e API_KEY=<your-api-key> gerdovika/weather_app
 ```
 The service will be available at address:
 - http://localhost:8080/
-- http://127.0.0.1:8080/
